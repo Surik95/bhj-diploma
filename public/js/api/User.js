@@ -4,12 +4,18 @@
  * Имеет свойство URL, равное '/user'.
  * */
 class User {
+  static URL = '/user';
   /**
    * Устанавливает текущего пользователя в
    * локальном хранилище.
    * */
   static setCurrent(user) {
-
+    if (user) {
+      localStorage.setItem(
+        'user',
+        JSON.stringify({ id: user.id, name: user.name })
+      );
+    }
   }
 
   /**
@@ -17,7 +23,7 @@ class User {
    * пользователе из локального хранилища.
    * */
   static unsetCurrent() {
-
+    localStorage.removeItem('user');
   }
 
   /**
@@ -25,7 +31,12 @@ class User {
    * из локального хранилища
    * */
   static current() {
-
+    const current = localStorage.getItem('user');
+    if (current) {
+      return JSON.parse(current);
+    } else {
+      return undefined;
+    }
   }
 
   /**
@@ -33,7 +44,19 @@ class User {
    * авторизованном пользователе.
    * */
   static fetch(callback) {
-
+    const xhr = createRequest({
+      url: this.URL + '/current',
+      method: 'GET',
+      responseType: 'json',
+      callback: (err, response) => {
+        if (response && response.user) {
+          User.setCurrent(response.user);
+        } else if (!response.success) {
+          User.unsetCurrent();
+        }
+        callback(err, response);
+      },
+    });
   }
 
   /**
@@ -53,7 +76,7 @@ class User {
           this.setCurrent(response.user);
         }
         callback(err, response);
-      }
+      },
     });
   }
 
@@ -64,7 +87,18 @@ class User {
    * User.setCurrent.
    * */
   static register(data, callback) {
-
+    createRequest({
+      url: this.URL + '/register',
+      method: 'POST',
+      responseType: 'json',
+      data,
+      callback: (err, response) => {
+        if (response && response.user) {
+          this.setCurrent(response.user);
+        }
+        callback(err, response);
+      },
+    });
   }
 
   /**
@@ -72,6 +106,16 @@ class User {
    * выхода необходимо вызвать метод User.unsetCurrent
    * */
   static logout(callback) {
-
+    createRequest({
+      url: this.URL + '/logout',
+      method: 'POST',
+      responseType: 'json',
+      callback: (err, response) => {
+        if (response.success === 'true') {
+          User.unsetCurrent();
+        }
+        callback(err, response);
+      },
+    });
   }
 }

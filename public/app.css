@@ -40,8 +40,8 @@
 }
 
 .transaction__icon {
-  width: 50px;
-  height: 70px;
+  min-width: 50px;
+  min-height: 70px;
   line-height: 70px;
 }
 
@@ -79,4 +79,18 @@
 
 .transaction__controls {
   line-height: 70px;
+}
+
+.transaction__date {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.transaction__info {
+  margin-left: 20px;
+}
+
+.transaction__title {
+  margin-top: -2px;
+  margin-bottom: 15px;
 }
