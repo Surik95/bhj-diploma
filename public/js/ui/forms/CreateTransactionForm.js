@@ -45,11 +45,11 @@ class CreateTransactionForm extends AsyncForm {
       if (response.success === true) {
         if (this.element === document.querySelector('#new-income-form')) {
           App.update();
-          App.modals.newIncome.element.querySelector('form').reset();
+          this.element.reset();
           App.modals.newIncome.close();
         } else {
           App.update();
-          App.modals.newExpense.element.querySelector('form').reset();
+          this.element.reset();
           App.modals.newExpense.close();
         }
       } else {

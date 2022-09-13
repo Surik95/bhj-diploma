@@ -160,6 +160,11 @@
       "name": "Альфа банк",
       "user_id": "2bk6de61ool7q48xyl",
       "id": "2bk6de6aucl7s2p4kl"
+    },
+    {
+      "name": "Тинькоф",
+      "user_id": "2bk6de61ool7q48xyl",
+      "id": "2bk6de6af4l80l92no"
     }
   ],
   "transactions": [
@@ -363,6 +368,24 @@
       "account_id": "2bk6de6aucl7s2p4kl",
       "user_id": "2bk6de61ool7q48xyl",
       "created_at": "2022-09-09T21:59:19.309Z"
+    },
+    {
+      "id": "2bk6de64zsl80kpqiu",
+      "type": "income",
+      "name": "Илья",
+      "sum": 500,
+      "account_id": "2bk6de66m4l7rxaw93",
+      "user_id": "2bk6de61ool7q48xyl",
+      "created_at": "2022-09-13T19:14:57.797Z"
+    },
+    {
+      "id": "2bk6de6ba0l80l8da4",
+      "type": "income",
+      "name": "Илья Антошин",
+      "sum": 500,
+      "account_id": "2bk6de66m4l7rxaw93",
+      "user_id": "2bk6de61ool7q48xyl",
+      "created_at": "2022-09-13T19:29:27.099Z"
     }
   ]
 }

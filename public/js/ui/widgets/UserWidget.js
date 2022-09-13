@@ -12,11 +12,11 @@ class UserWidget {
    * необходимо выкинуть ошибку.
    * */
   constructor(element) {
-    if (element) {
-      this.element = element;
-    } else {
+    if (!element) {
       throw new Error('Отсутствует параметр');
     }
+
+    this.element = element;
   }
 
   /**

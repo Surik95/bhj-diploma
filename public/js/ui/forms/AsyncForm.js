@@ -13,12 +13,12 @@ class AsyncForm {
    * через registerEvents()
    * */
   constructor(element) {
-    if (element) {
-      this.element = element;
-      this.registerEvents();
-    } else {
+    if (!element) {
       throw new Error('Отсутствует параметр');
     }
+
+    this.element = element;
+    this.registerEvents();
   }
 
   /**
@@ -57,7 +57,6 @@ class AsyncForm {
    * данные, полученные из метода getData()
    * */
   submit() {
-    const obj = this.getData();
-    this.onSubmit(obj);
+    this.onSubmit(this.getData());
   }
 }

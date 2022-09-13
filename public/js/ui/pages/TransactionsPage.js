@@ -11,12 +11,11 @@ class TransactionsPage {
    * через registerEvents()
    * */
   constructor(element) {
-    if (element) {
-      this.element = element;
-      this.registerEvents();
-    } else {
+    if (!element) {
       throw new Error('Отсутствует параметр');
     }
+    this.element = element;
+    this.registerEvents();
   }
 
   /**
@@ -72,8 +71,6 @@ class TransactionsPage {
         }
         this.clear();
       });
-    } else {
-      return;
     }
   }
 
@@ -93,8 +90,6 @@ class TransactionsPage {
           console.log(err);
         }
       });
-    } else {
-      return;
     }
   }
 

@@ -12,12 +12,12 @@ class Modal {
    * необходимо выкинуть ошибку.
    * */
   constructor(element) {
-    if (element) {
-      this.element = element;
-      this.registerEvents();
-    } else {
+    if (!element) {
       throw new Error('Отсутствует параметр');
     }
+
+    this.element = element;
+    this.registerEvents();
   }
 
   /**

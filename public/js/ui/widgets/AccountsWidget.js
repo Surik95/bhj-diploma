@@ -14,13 +14,13 @@ class AccountsWidget {
    * необходимо выкинуть ошибку.
    * */
   constructor(element) {
-    if (element) {
-      this.element = element;
-      this.update();
-      this.registerEvents();
-    } else {
-      throw new Error('element cannot be empty');
+    if (!element) {
+      throw new Error('Отсутствует параметр');
     }
+
+    this.element = element;
+    this.update();
+    this.registerEvents();
   }
 
   /**
