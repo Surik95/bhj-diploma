@@ -27,7 +27,7 @@ class UserWidget {
    * авторизованного пользователя
    * */
   update() {
-    if (User.current().name) {
+    if (User.current()) {
       document.querySelector('.user-name').innerText = User.current().name;
     }
   }

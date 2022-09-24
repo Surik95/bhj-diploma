@@ -233,7 +233,6 @@ class TransactionsPage {
       const section = document.createElement('section');
       const heading = document.createElement('h1');
 
-      div.classList.add('content-wrapper');
       section.classList.add('content-header');
 
       heading.insertAdjacentHTML('beforeend', this.getTransactionHTML(item));

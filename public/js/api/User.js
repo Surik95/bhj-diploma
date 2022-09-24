@@ -10,7 +10,10 @@ class User {
    * локальном хранилище.
    * */
   static setCurrent(user) {
-    JSON.stringify({ id: user.id, name: user.name });
+    localStorage.setItem(
+      'user',
+      JSON.stringify({ id: user.id, name: user.name })
+    );
   }
 
   /**
